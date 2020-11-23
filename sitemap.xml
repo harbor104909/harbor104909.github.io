@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://harbors.vip/post/0.html</loc>
+    <loc>http://harbors.vip/post/webldxf.html</loc>
     
-    <lastmod>2020-11-18</lastmod>
+    <lastmod>2020-11-23</lastmod>
     
   </url>
   
@@ -81,6 +81,20 @@
   </url>
   
   <url>
+    <loc>http://harbors.vip/tags/web/</loc>
+    <lastmod>2020-11-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://harbors.vip/tags/%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D/</loc>
+    <lastmod>2020-11-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://harbors.vip/tags/HW/</loc>
     <lastmod>2020-11-23</lastmod>
     <changefreq>daily</changefreq>
@@ -98,6 +112,13 @@
   
   <url>
     <loc>http://harbors.vip/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/</loc>
+    <lastmod>2020-11-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://harbors.vip/categories/%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D/</loc>
     <lastmod>2020-11-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
