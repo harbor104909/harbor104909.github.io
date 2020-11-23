@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://harbors.vip/post/0.html</loc>
+    
+    <lastmod>2020-11-18</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://harbors.vip/post/hw.html</loc>
     
     <lastmod>2020-11-16</lastmod>
@@ -10,13 +17,6 @@
   
   <url>
     <loc>http://harbors.vip/post/cve-2020-0796.html</loc>
-    
-    <lastmod>2020-11-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://harbors.vip/post/webldxf.html</loc>
     
     <lastmod>2020-11-14</lastmod>
     
@@ -60,7 +60,7 @@
 
   <url>
     <loc>http://harbors.vip/</loc>
-    <lastmod>2020-11-16</lastmod>
+    <lastmod>2020-11-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -68,42 +68,28 @@
   
   <url>
     <loc>http://harbors.vip/tags/CVE-2020-0796/</loc>
-    <lastmod>2020-11-16</lastmod>
+    <lastmod>2020-11-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://harbors.vip/tags/%E6%B0%B8%E6%81%92%E4%B9%8B%E9%BB%91/</loc>
-    <lastmod>2020-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://harbors.vip/tags/web/</loc>
-    <lastmod>2020-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://harbors.vip/tags/%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D/</loc>
-    <lastmod>2020-11-16</lastmod>
+    <lastmod>2020-11-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://harbors.vip/tags/HW/</loc>
-    <lastmod>2020-11-16</lastmod>
+    <lastmod>2020-11-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://harbors.vip/tags/2020/</loc>
-    <lastmod>2020-11-16</lastmod>
+    <lastmod>2020-11-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -112,21 +98,14 @@
   
   <url>
     <loc>http://harbors.vip/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/</loc>
-    <lastmod>2020-11-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://harbors.vip/categories/%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D/</loc>
-    <lastmod>2020-11-16</lastmod>
+    <lastmod>2020-11-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://harbors.vip/categories/%E6%BC%8F%E6%B4%9E%E5%BA%93/</loc>
-    <lastmod>2020-11-16</lastmod>
+    <lastmod>2020-11-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
